@@ -6,13 +6,17 @@
     main {
         display: flex;
         flex-direction: column;
-        margin-left: 600px;
+        margin-left: var(--content-offset);
+        width: var(--content-width);
+        padding-right: clamp(1.5rem, 2vw, 2.5rem);
     }
     @media (max-width: 768px) {
         main {
             display: flex;
             flex-direction: column;
             margin-left: 0;
+            width: 100%;
+            padding-right: 0;
         }
     }
     @media (max-width: 1300px) {
@@ -21,6 +25,8 @@
             flex-direction: column;
             margin-left: 0;
             align-items: center;
+            width: 100%;
+            padding-right: 0;
         }
     }
 </style>

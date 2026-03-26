@@ -13,14 +13,14 @@ import Badge from "./Badge.astro";
                     <li
                         onclick={`window.location.href='./projects/${project.id}'`}
                     >
-                        <div class="goal">
-                            <span>{project.goal}</span>
-                        </div>
                         <div class="project-data">
+                            <div class="project-meta">
+                                <span class="goal">{project.goal}</span>
+                                <span class="project-type">{project.project_type}</span>
+                            </div>
                             <p class="title">
                                 {project.title} <ArrowRight class="arrow" />{" "}
                             </p>
-                            <h2>{project.project_type}</h2>
                             <p class="description">{project.description}</p>
                             <ul class="tecnologies">
                                 {project.tecnologies.map((tecnology) => (
@@ -37,28 +37,54 @@ import Badge from "./Badge.astro";
 </section>
 
 <style>
+    .projects {
+        width: 100%;
+        max-width: 980px;
+    }
     .project-data {
-        margin-left: 30px;
+        margin-left: 0;
+        display: grid;
+        gap: 0.45rem;
+        width: 100%;
+    }
+    .project-meta {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: space-between;
+        width: 100%;
     }
     section {
         font-size: 0.875em; /* 14 px */
         color: #d8d8d8;
     }
+    .projects > ul {
+        display: grid;
+        gap: 1rem;
+        padding: 0;
+        margin-bottom: 1.1rem;
+    }
     .title {
         font-size: 1.2em;
         font-weight: 500;
-        text-height: 1.5em;
+        line-height: 1.4;
         display: inline-flex;
-        margin-bottom: 10px;
+        align-items: center;
+        margin-bottom: 0;
     }
     .title .arrow {
         padding-left: 3px;
+        transition: padding-left 220ms ease;
     }
     .description {
         color: #d8d8d8ba;
         letter-spacing: 1px;
-        width: 90%;
+        width: 100%;
+        max-width: none;
         margin-top: 0;
+        margin-bottom: 0.25rem;
+        line-height: 1.65;
     }
     a {
         display: inline-flex;
@@ -67,40 +93,79 @@ import Badge from "./Badge.astro";
         color: #d8d8d8;
     }
 
-    li {
+    .projects > ul > li {
         list-style: none;
-        display: flex;
-        flex-direction: row;
-        margin: 10px auto;
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 1.1rem 1.2rem;
+        border: 1px solid rgba(216, 216, 216, 0.08);
+        border-radius: 18px;
+        background:
+            linear-gradient(135deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018)),
+            rgba(12, 24, 56, 0.45);
+        transition:
+            background-color 220ms ease,
+            transform 220ms ease,
+            border-color 220ms ease,
+            box-shadow 220ms ease;
     }
-    li:hover {
-        background-color: #1f2a4b;
-        border-radius: 5px;
+    .projects > ul > li:hover {
+        background:
+            linear-gradient(135deg, rgba(80, 203, 199, 0.08), rgba(77, 124, 255, 0.04)),
+            rgba(16, 28, 61, 0.78);
         cursor: pointer;
+        transform: translateY(-4px);
+        border-color: rgba(80, 203, 199, 0.22);
+        box-shadow: 0 18px 40px rgba(7, 12, 31, 0.24);
     }
-    li:hover .arrow {
+    .projects > ul > li:hover .arrow {
         padding-left: 8px;
     }
     .goal {
-        margin-top: 20px;
-        padding-left: 10px;
-        color: #d8d8d8ba;
+        display: inline-flex;
+        align-items: center;
+        color: #50cbc7;
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 600;
     }
-    li:hover .title {
+    .project-type {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.28rem 0.65rem;
+        border-radius: 999px;
+        color: #d8d8d8;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(216, 216, 216, 0.1);
+        white-space: nowrap;
+    }
+    .project-type::before {
+        content: "";
+        width: 0.45rem;
+        height: 0.45rem;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #50cbc7, #4d7cff);
+        box-shadow: 0 0 12px rgba(80, 203, 199, 0.3);
+    }
+    .projects > ul > li:hover .title {
         color: #50cbc7;
     }
     .tecnologies {
         padding: 0;
         display: flex;
         flex-wrap: wrap;
+        gap: 0.4rem;
+        margin: 0;
+        width: 100%;
     }
     .tecnologies li {
-        padding: 2px;
-        margin-right: 5px;
-    }
-    ul {
-        padding: 0;
-        margin-bottom: 15px;
+        list-style: none;
     }
     a {
         font-weight: 500;
@@ -111,12 +176,6 @@ import Badge from "./Badge.astro";
     a:hover .arrow {
         padding-left: 5px;
     }
-    h2 {
-        font-size: 1.1em;
-        margin-top: 0;
-        color: #d8d8d8ba;
-        font-weight: 500;
-    }
     h3 {
         display: none;
     }
@@ -125,9 +184,10 @@ import Badge from "./Badge.astro";
             display: block;
             color: #d8d8d8;
         }
-        .ul{
-            color: red;
-            background-color: red;
+        .project-meta {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 0.55rem;
         }
     }
 
@@ -135,6 +195,9 @@ import Badge from "./Badge.astro";
         h3 {
             display: block;
             color: #d8d8d8;
+        }
+        .project-meta {
+            align-items: flex-start;
         }
     }
 </style>

@@ -4,40 +4,45 @@
 
 <article class="about" id="about">
     <h3>About</h3>
-    <p>
-        As a self-taught developer, I always feel the need to seek solutions
-        from a technological perspective. This constant motivation to find solutions
-        is also what pushes me to keep learning and continuously improve my
-        skills.
-    </p>
-    <p>
-        After studying and practicing ethical hacking, I started my current role
-        in 2021 as a QA at <strong>GeneXus</strong>, working with the security team. My tasks are
-        diverse, but I specialize in automated testing and frequently work on
-        test plans and regression analysis—all with the goal of <strong>ensuring the
-        quality</strong> of the final product.
-    </p>
-    <p>
-        I am in my final year of the IT Technologist degree. Thanks to the wide
-        range of projects and challenges I have tackled, I feel confident in my
-        ability to<strong> take on new challenges </strong> with the versatility that defines me.
-    </p>
-    <p>
-        In my free time, I enjoy reading and training. However, most of my spare
-        time is dedicated to my true passion: software development and
-        researching new technologies and trends.
-    </p>
+    <div class="about-content">
+        <p>
+            As a self-taught developer, I always feel the need to seek solutions
+            from a technological perspective. This constant motivation to find solutions
+            is also what pushes me to keep learning and continuously improve my
+            skills.
+        </p>
+        <p>
+            After studying and practicing ethical hacking, I started my current role
+            in 2021 as a QA at <strong>GeneXus</strong>, working with the security team. My tasks are
+            diverse, but I specialize in automated testing and frequently work on
+            test plans and regression analysis, all with the goal of <strong>ensuring the
+            quality</strong> of the final product.
+        </p>
+        <p>
+            I am in my final year of the IT Technologist degree. Thanks to the wide
+            range of projects and challenges I have tackled, I feel confident in my
+            ability to <strong>take on new challenges</strong> with the versatility that defines me.
+        </p>
+        <p>
+            In my free time, I enjoy reading and training. However, most of my spare
+            time is dedicated to my true passion: software development and
+            researching new technologies and trends.
+        </p>
+    </div>
 </article>
 
 <style>
     article {
-        max-width: 600px;
+        max-width: 760px;
         line-height: 1.5;
         margin-bottom: 60px;
         color: #d8d8d8ba;
     }
     strong {
         color: #d8d8d8;
+    }
+    .about-content {
+        width: 100%;
     }
 
     h3{
@@ -48,9 +53,19 @@
         h3{
             display: block;
             color: #d8d8d8;
+            text-align: left;
         }
         article {
             margin-bottom: 40px;
+            margin-left: auto;
+            margin-right: auto;
+            width: min(100%, 42rem);
+        }
+        .about-content {
+            width: min(100%, 36rem);
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
         }
     }
 
@@ -58,10 +73,20 @@
         h3{
             display: block;
             color: #d8d8d8;
+            text-align: left;
         }
         article {
             max-width: none;
             margin-bottom: 40px;
+            margin-left: auto;
+            margin-right: auto;
+            width: min(100%, 42rem);
+        }
+        .about-content {
+            width: min(100%, 36rem);
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
         }
     }
 </style>

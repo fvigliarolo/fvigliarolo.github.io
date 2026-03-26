@@ -1,3 +1,7 @@
+---
+import AmbientBackground from "../components/AmbientBackground.astro";
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -8,35 +12,66 @@
 		<title>Federico Vigliarolo</title>
 	</head>
 	<body>
-		<slot />
+		<AmbientBackground />
+		<div class="page-shell">
+			<slot />
+		</div>
 	</body>
 </html>
 
 <style is:global>
+	:root {
+		--page-bg: #101c3d;
+		--page-text: #d8d8d8;
+		--page-accent: #50cbc7;
+		--page-accent-soft: #4d7cff;
+		--sidebar-width: clamp(20rem, 28vw, 25rem);
+		--content-width: min(100%, 54rem);
+		--content-offset: calc(var(--sidebar-width) + clamp(5rem, 6vw, 7rem));
+	}
+
 	html,
 	body {
-		margin: 40px auto;
-		width: 85%;
-		height: 100%;
-		background-color: #101c3d;
-		color: #d8d8d8;
+		min-height: 100%;
+		background-color: var(--page-bg);
+		color: var(--page-text);
   		font-family: 'Onest Variable', sans-serif;
 		line-height: inherit;
 		font-weight: 100;
 	}
+
+	body {
+		margin: 0;
+	}
+
+	.page-shell {
+		position: relative;
+		z-index: 1;
+		width: min(92%, 1600px);
+		margin: 40px auto;
+	}
+
+	::selection {
+		background: rgba(80, 203, 199, 0.35);
+	}
+
     @media (max-width: 768px) {
-		body {
+		.page-shell {
 			margin: 0;
 			width: 100%;
-			flex-direction: column;
 		}
 	}
 	/* Agregamos media querys para hasta 1300px */
 	@media (max-width: 1300px) {
-		body {
+		:root {
+			--sidebar-width: 100%;
+			--content-width: 100%;
+			--content-offset: 0;
+		}
+
+		.page-shell {
 			margin: 0;
 			width: 100%;
-			flex-direction: column;
 		}
 	}
 </style>
