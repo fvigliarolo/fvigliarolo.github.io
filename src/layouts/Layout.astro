@@ -25,9 +25,9 @@ import AmbientBackground from "../components/AmbientBackground.astro";
 		--page-text: #d8d8d8;
 		--page-accent: #50cbc7;
 		--page-accent-soft: #4d7cff;
-		--sidebar-width: clamp(20rem, 28vw, 25rem);
-		--content-width: min(100%, 54rem);
-		--content-offset: calc(var(--sidebar-width) + clamp(5rem, 6vw, 7rem));
+		--sidebar-width: clamp(17rem, 22vw, 20.5rem);
+		--content-width: min(100%, 48.75rem);
+		--content-offset: calc(var(--sidebar-width) + clamp(4rem, 4.8vw, 5.6rem));
 	}
 
 	html,
@@ -42,12 +42,19 @@ import AmbientBackground from "../components/AmbientBackground.astro";
 
 	body {
 		margin: 0;
+		overflow-x: hidden;
+	}
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
 	}
 
 	.page-shell {
 		position: relative;
 		z-index: 1;
-		width: min(92%, 1600px);
+		width: min(94%, 1600px);
 		margin: 40px auto;
 	}
 
