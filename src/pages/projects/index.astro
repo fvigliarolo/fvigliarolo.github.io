@@ -7,90 +7,259 @@ import ArrowRight from '../../components/icons/ArrowRight.astro';
 ---
 
 <LayoutProjects>
-    <header>
-        <a href="../"> <h2><ArrowLeft class="arrowLeft"/> Federico Vigliarolo</h2></a>
+    <header class="projects-header">
+        <a href="../" class="back-link">
+            <ArrowLeft class="arrowLeft" /> Federico Vigliarolo
+        </a>
         <h1>Projects</h1>
     </header>
-    <section id="Projects">
+
+    <section id="Projects" class="projects-list">
         <ul>
             {
-                projects.map(
-                    (
-                        project
-                    ) => (
-                        <li>
-                            <div>
-                                <span></span>
+                projects.map((project) => (
+                    <li onclick={project.extended_description !== '' ? `window.location.href='/projects/${project.id}'` : ""}>
+                        <div class="project-data">
+                            <div class="project-meta">
+                                <span class="goal">{project.goal}</span>
+                                <span class="project-type">{project.project_type}</span>
                             </div>
-                            <div onclick={project.extended_description != '' ? `window.location.href='./${project.id}'`: ""}>
-                                <h3><a>{project.title}</a> {project.extended_description != '' ? <ArrowRight class="arrowRight"/> : ""}</h3>
-                                <p>{project.description}</p>
-                                <ul class="tecnologies">
-                                    {project.tecnologies.map((tecnology) => (
-                                        <Badge>{tecnology}</Badge>
-                                    ))}
-                                </ul>
-                            </div>
-                        </li>
-                    ),
-                )
+                            <p class="title">
+                                {project.title}
+                                {project.extended_description !== '' && <ArrowRight class="arrow" />}
+                            </p>
+                            <p class="description">{project.description}</p>
+                            <ul class="tecnologies">
+                                {project.tecnologies.map((tecnology) => (
+                                    <Badge>{tecnology}</Badge>
+                                ))}
+                            </ul>
+                        </div>
+                    </li>
+                ))
             }
         </ul>
     </section>
 </LayoutProjects>
 
 <style>
-    
-    section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        letter-spacing: 1px;
+    .projects-header {
+        display: grid;
+        gap: 0.6rem;
+        margin-bottom: 1.8rem;
     }
+
+    .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        width: fit-content;
+        color: #d8d8d8;
+        opacity: 0.92;
+        transition: transform 220ms ease, color 220ms ease;
+    }
+
+    .back-link:hover {
+        color: #50cbc7;
+        transform: translateX(-4px);
+    }
+
+    .projects-list {
+        width: min(100%, 800px);
+        margin: 0 auto;
+    }
+
+    .projects-list > ul {
+        display: grid;
+        gap: 1.08rem;
+        padding: 0;
+        margin: 0;
+    }
+
+    .projects-list > ul > li {
+        list-style: none;
+        display: block;
+        position: relative;
+        width: 100%;
+        margin: 0;
+        padding: 0.9rem 1rem;
+        border: 1px solid rgba(216, 216, 216, 0.08);
+        border-radius: 18px;
+        overflow: hidden;
+        background:
+            linear-gradient(135deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018)),
+            rgba(12, 24, 56, 0.45);
+        transition:
+            transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+            border-color 320ms ease,
+            box-shadow 320ms ease,
+            background 320ms ease;
+    }
+
+    .projects-list > ul > li::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background:
+            radial-gradient(circle at 12% 18%, rgba(80, 203, 199, 0.16), transparent 36%),
+            radial-gradient(circle at 88% 82%, rgba(77, 124, 255, 0.14), transparent 32%);
+        opacity: 0;
+        transition:
+            opacity 320ms ease,
+            transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+        transform: scale(0.96);
+        pointer-events: none;
+    }
+
+    .projects-list > ul > li::after {
+        content: "";
+        position: absolute;
+        inset: 1px;
+        border-radius: calc(18px - 1px);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 28%);
+        opacity: 0.45;
+        pointer-events: none;
+        transition: opacity 320ms ease;
+    }
+
+    .projects-list > ul > li:hover {
+        background:
+            linear-gradient(135deg, rgba(80, 203, 199, 0.09), rgba(77, 124, 255, 0.05)),
+            rgba(16, 28, 61, 0.82);
+        cursor: pointer;
+        transform: translateY(-5px) scale(1.01);
+        border-color: rgba(80, 203, 199, 0.18);
+        box-shadow:
+            0 20px 44px rgba(7, 12, 31, 0.22),
+            0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+    }
+
+    .projects-list > ul > li:hover::before {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .projects-list > ul > li:hover::after {
+        opacity: 0.72;
+    }
+
+    .projects-list > ul > li:hover .title {
+        color: #50cbc7;
+    }
+
+    .projects-list > ul > li:hover .arrow {
+        padding-left: 8px;
+    }
+
+    .project-data {
+        display: grid;
+        gap: 0.35rem;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+    }
+
+    .project-meta {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        justify-content: space-between;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+    }
+
+    .goal {
+        display: inline-flex;
+        align-items: center;
+        color: #50cbc7;
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    .project-type {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.28rem 0.65rem;
+        border-radius: 999px;
+        color: #d8d8d8;
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(216, 216, 216, 0.1);
+        white-space: nowrap;
+    }
+
+    .project-type::before {
+        content: "";
+        width: 0.45rem;
+        height: 0.45rem;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #50cbc7, #4d7cff);
+        box-shadow: 0 0 12px rgba(80, 203, 199, 0.3);
+    }
+
+    .title {
+        font-size: 1.12em;
+        font-weight: 500;
+        line-height: 1.35;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.15rem;
+        margin: 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    .arrow {
+        padding-left: 3px;
+        transition: padding-left 220ms ease;
+    }
+
+    .description {
+        color: #d8d8d8ba;
+        letter-spacing: 0.02em;
+        width: 100%;
+        margin: 0 0 0.15rem;
+        line-height: 1.48;
+        position: relative;
+        z-index: 1;
+    }
+
     .tecnologies {
         padding: 0;
         display: flex;
-        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+        margin: 0;
+        width: 100%;
+        position: relative;
+        z-index: 1;
     }
-    li {
+
+    .tecnologies li {
         list-style: none;
-    }
-    li:hover{
-        background-color: #1f2a4b;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    li:hover h3 a{
-        color: #50cbc7;
-    }
-
-    li:hover .arrowRight{
-        padding-left: 3px;
-        color: #50cbc7;
-    }
-    
-    div h3{
-        display: flex;
-    }
-
-    li .arrowRight{
-        margin-left: 3px;
     }
 
     @media (max-width: 768px) {
-        header{
-            margin: 0;
-            margin-bottom: 20px;
-            padding: 0;
+        .projects-header {
+            margin-bottom: 1.4rem;
         }
-        section {
-            font-size: 0.875em; /* 14 px */
-            color: #d8d8d8;
-        }
-        ul{
-            padding: 0;
+
+        .projects-list {
             width: 100%;
-            margin: 40px 0;
+        }
+
+        .project-meta {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 0.55rem;
         }
     }
 </style>

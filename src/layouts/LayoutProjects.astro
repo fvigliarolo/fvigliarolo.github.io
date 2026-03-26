@@ -1,3 +1,7 @@
+---
+import AmbientBackground from "../components/AmbientBackground.astro";
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -8,31 +12,54 @@
 		<title>Federico Vigliarolo</title>
 	</head>
 	<body>
-		<slot />
+		<AmbientBackground />
+		<div class="projects-shell">
+			<slot />
+		</div>
 	</body>
 </html>
 
 <style is:global>
+    :root {
+        --page-bg: #101c3d;
+        --page-text: #d8d8d8;
+        --page-accent: #50cbc7;
+        --page-accent-soft: #4d7cff;
+    }
+
     html,
     body {
-        margin: 40px auto;
-        width: 80%;
-        height: 100%;
-        background-color: #101c3d;
-        color: #d8d8d8;
+        min-height: 100%;
+        background-color: var(--page-bg);
+        color: var(--page-text);
         font-family: "Onest Variable", sans-serif;
         line-height: inherit;
         font-weight: 100;
+    }
+    body {
+        margin: 0;
+        overflow-x: hidden;
+    }
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+    .projects-shell {
+        position: relative;
+        z-index: 1;
+        width: min(92%, 1040px);
+        margin: 40px auto 64px;
     }
     h2{
         font-weight: 300;
     }
     h1 {
         margin-bottom: 20px;
-        text-align: center;
+        text-align: left;
     }
     a{
-        color: #50cbc7;
+        color: var(--page-accent);
         text-decoration: none;
 
     }
@@ -44,10 +71,10 @@
     }
 
     @media (max-width: 768px) {
-        body {
+        .projects-shell {
             margin: 0;
             width: 100%;
-            flex-direction: column;
+            padding: 1.25rem;
         }
         .tecnologies {
             flex-wrap: wrap;
@@ -55,11 +82,9 @@
     }
 
     @media (max-width: 1300px){
-        html,
-        body {
-            /* margin: 0; */
-            width: 90%;
-            /* flex-direction: column; */
+        .projects-shell {
+            width: min(94%, 1040px);
+            margin: 24px auto 48px;
         }
     }
 </style>
