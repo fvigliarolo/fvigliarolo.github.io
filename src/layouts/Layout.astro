@@ -1,5 +1,6 @@
 ---
 import AmbientBackground from "../components/AmbientBackground.astro";
+import "@fontsource-variable/onest";
 ---
 
 <!doctype html>
@@ -25,9 +26,10 @@ import AmbientBackground from "../components/AmbientBackground.astro";
 		--page-text: #d8d8d8;
 		--page-accent: #50cbc7;
 		--page-accent-soft: #4d7cff;
-		--sidebar-width: clamp(17rem, 22vw, 20.5rem);
+		--sidebar-width: clamp(18.5rem, 24vw, 22rem);
 		--content-width: min(100%, 48.75rem);
-		--content-offset: calc(var(--sidebar-width) + clamp(4rem, 4.8vw, 5.6rem));
+		--content-offset: calc(var(--sidebar-width) + clamp(6rem, 6.8vw, 8rem));
+		--page-shell-offset: clamp(14.96rem, 17.68vw, 18.105rem);
 	}
 
 	html,
@@ -54,8 +56,8 @@ import AmbientBackground from "../components/AmbientBackground.astro";
 	.page-shell {
 		position: relative;
 		z-index: 1;
-		width: min(94%, 1600px);
-		margin: 40px auto;
+		width: min(calc(100% - var(--page-shell-offset) - 2.5rem), 1600px);
+		margin: 40px 0 40px var(--page-shell-offset);
 	}
 
 	::selection {
