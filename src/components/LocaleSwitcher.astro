@@ -11,14 +11,20 @@ const { className = "" } = Astro.props;
 <script is:inline>
     if (!window.__portfolioLocaleInitialized) {
         window.__portfolioLocaleInitialized = true;
+        const localeStorageKey = "portfolio-locale";
 
         const getLocaleValue = (element, locale) => {
             return locale === "es" ? element.dataset.localeEs : element.dataset.localeEn;
         };
 
+        const getStoredLocale = () => {
+            const storedLocale = sessionStorage.getItem(localeStorageKey);
+            return storedLocale === "es" ? "es" : "en";
+        };
+
         const applyLocale = (locale) => {
             document.documentElement.lang = locale;
-            localStorage.setItem("portfolio-locale", locale);
+            sessionStorage.setItem(localeStorageKey, locale);
 
             document.querySelectorAll("[data-locale-en]").forEach((element) => {
                 const value = getLocaleValue(element, locale) ?? element.dataset.localeEn;
@@ -40,6 +46,12 @@ const { className = "" } = Astro.props;
             });
         };
 
+        window.__applyPortfolioLocale = applyLocale;
+
+        const syncLocale = () => {
+            window.__applyPortfolioLocale(getStoredLocale());
+        };
+
         document.addEventListener("click", (event) => {
             const button = event.target.closest("[data-locale-button]");
 
@@ -47,10 +59,16 @@ const { className = "" } = Astro.props;
                 return;
             }
 
-            applyLocale(button.dataset.localeButton);
+            window.__applyPortfolioLocale(button.dataset.localeButton);
         });
 
-        applyLocale(localStorage.getItem("portfolio-locale") || "en");
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", syncLocale, { once: true });
+        } else {
+            syncLocale();
+        }
+
+        window.addEventListener("pageshow", syncLocale);
     }
 </script>
 

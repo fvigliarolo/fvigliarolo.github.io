@@ -9,13 +9,26 @@ const { frontmatter } = Astro.props;
 const isBlogPost = Boolean(frontmatter.author) && Boolean(frontmatter.date) && !frontmatter.goal;
 const backHref = isBlogPost ? "/blog" : "../";
 const backLabel = isBlogPost ? "Blog" : "Projects";
+const backLabelEs = isBlogPost ? "Blog" : "Proyectos";
+const summaryLabelEn = isBlogPost ? "Published" : "Scope";
+const summaryLabelEs = isBlogPost ? "Publicado" : "Alcance";
+const technologiesLabelEn = isBlogPost ? "Topics" : "Technologies";
+const technologiesLabelEs = isBlogPost ? "Temas" : "Tecnologias";
+const tagsLabelEn = "Tags";
+const tagsLabelEs = "Etiquetas";
+const demoLabelEn = "Demo";
+const demoLabelEs = "Demo";
+const githubLabelEn = "Github";
+const githubLabelEs = "Github";
+const title = frontmatter.title;
+const titleEs = frontmatter.title_es ?? title;
 ---
 
 <LayoutProjects>
     <article class="project-post">
         <header class="project-header">
             <a href={backHref} class="back-link">
-                <ArrowLeft class="arrowLeft" /> {backLabel}
+                <ArrowLeft class="arrowLeft" /> <span data-locale-en={backLabel} data-locale-es={backLabelEs}>{backLabel}</span>
             </a>
 
             <div class="hero-copy">
@@ -26,17 +39,17 @@ const backLabel = isBlogPost ? "Blog" : "Projects";
 
                     {isBlogPost ? (
                         <div class="summary-group summary-inline">
-                            <p class="summary-label">Published</p>
+                            <p class="summary-label" data-locale-en={summaryLabelEn} data-locale-es={summaryLabelEs}>{summaryLabelEn}</p>
                             <p class="summary-value project-goal">{frontmatter.date}</p>
                         </div>
                     ) : (
                         <div class="summary-group summary-inline">
-                            <p class="summary-label">Scope</p>
-                            <p class="summary-value project-goal">{frontmatter.goal}</p>
+                            <p class="summary-label" data-locale-en={summaryLabelEn} data-locale-es={summaryLabelEs}>{summaryLabelEn}</p>
+                            <p class="summary-value project-goal" data-locale-en={frontmatter.goal} data-locale-es={frontmatter.goal_es ?? frontmatter.goal}>{frontmatter.goal}</p>
                         </div>
                     )}
                 </div>
-                <h1>{frontmatter.title}</h1>
+                <h1 data-locale-en={title} data-locale-es={titleEs}>{title}</h1>
             </div>
 
             <div class="project-overview">
@@ -45,14 +58,14 @@ const backLabel = isBlogPost ? "Blog" : "Projects";
                         {frontmatter.demo && frontmatter.demo !== "" && (
                             <li>
                                 <a href={frontmatter.demo} target="_blank" rel="noreferrer">
-                                    <Link class="iconLink" /> Demo
+                                    <Link class="iconLink" /> <span data-locale-en={demoLabelEn} data-locale-es={demoLabelEs}>{demoLabelEn}</span>
                                 </a>
                             </li>
                         )}
                         {frontmatter.github && frontmatter.github.length > 0 && (
                             <li>
                                 <a href={frontmatter.github[0]} target="_blank" rel="noreferrer">
-                                    <Github class="iconLink" /> Github
+                                    <Github class="iconLink" /> <span data-locale-en={githubLabelEn} data-locale-es={githubLabelEs}>{githubLabelEn}</span>
                                 </a>
                             </li>
                         )}
@@ -60,7 +73,7 @@ const backLabel = isBlogPost ? "Blog" : "Projects";
                 </div>
 
                 <div class="summary-group technologies-group">
-                    <p class="summary-label">{isBlogPost ? "Topics" : "Technologies"}</p>
+                    <p class="summary-label" data-locale-en={technologiesLabelEn} data-locale-es={technologiesLabelEs}>{technologiesLabelEn}</p>
                     <ul class="tecnologies">
                         {
                             frontmatter.tecnologies.map((tecnology) => (
@@ -78,7 +91,7 @@ const backLabel = isBlogPost ? "Blog" : "Projects";
 
         <section class="project-details">
             <div class="detail-block">
-                <p class="detail-label">Tags</p>
+                <p class="detail-label" data-locale-en={tagsLabelEn} data-locale-es={tagsLabelEs}>{tagsLabelEn}</p>
                 <ul class="tags">
                     {frontmatter.tags.map((tag) => <Badge class="tag">{tag}</Badge>)}
                 </ul>

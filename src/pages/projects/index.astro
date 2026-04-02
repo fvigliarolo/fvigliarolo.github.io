@@ -11,7 +11,7 @@ import ArrowRight from '../../components/icons/ArrowRight.astro';
         <a href="../" class="back-link">
             <ArrowLeft class="arrowLeft" /> Federico Vigliarolo
         </a>
-        <h1>Projects</h1>
+        <h1 data-locale-en="Projects" data-locale-es="Proyectos">Projects</h1>
     </header>
 
     <section id="Projects" class="projects-list">
@@ -21,14 +21,14 @@ import ArrowRight from '../../components/icons/ArrowRight.astro';
                     <li onclick={project.extended_description !== '' ? `window.location.href='/projects/${project.id}'` : ""}>
                         <div class="project-data">
                             <div class="project-meta">
-                                <span class="goal">{project.goal}</span>
+                                <span class="goal" data-locale-en={project.goal} data-locale-es={project.goal_es ?? project.goal}>{project.goal}</span>
                                 <span class="project-type">{project.project_type}</span>
                             </div>
                             <p class="title">
                                 {project.title}
                                 {project.extended_description !== '' && <ArrowRight class="arrow" />}
                             </p>
-                            <p class="description">{project.description}</p>
+                            <p class="description" data-locale-en={project.description} data-locale-es={project.description_es ?? project.description}>{project.description}</p>
                             <ul class="tecnologies">
                                 {project.tecnologies.map((tecnology) => (
                                     <Badge>{tecnology}</Badge>
