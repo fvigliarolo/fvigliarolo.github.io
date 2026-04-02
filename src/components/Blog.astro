@@ -1,5 +1,7 @@
 ---
 import ArrowRight from "./icons/ArrowRight.astro";
+import BlogPostCard from "./BlogPostCard.astro";
+
 const allPosts = await Astro.glob("../pages/blog/*.md");
 ---
 
@@ -9,68 +11,70 @@ const allPosts = await Astro.glob("../pages/blog/*.md");
         {Object.entries(allPosts)
             .sort((a, b) => b[1].frontmatter.id - a[1].frontmatter.id)
             .slice(0, 3)
-            .map(([slug, { frontmatter }]) => {
-                const date = new Date(frontmatter.date);
-                const formattedDate = date.toLocaleDateString("es-ES", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                });
-                return (
-                    <li>
-                        <a href={"blog/" + frontmatter.id}>
-                            <h4>{frontmatter.title}<ArrowRight class="arrow" /></h4>
-                        </a>
-                    </li>
-                );
-            })
-            
-        }
-        <li>
+            .map(([slug, { frontmatter }]) => (
+                <BlogPostCard frontmatter={frontmatter} href={`./blog/${frontmatter.id}`} />
+            ))}
     </ul>
+    <a href="./blog">See more posts <ArrowRight class="arrow" /> </a>
 </aside>
 
 <style>
     aside {
-        font-size: 0.875em; /* 14 px */
+        width: 100%;
+        max-width: 800px;
+        font-size: 0.875em;
         color: #d8d8d8;
         margin-top: 60px;
         margin-bottom: 60px;
-        padding: 20px;
     }
+
+    .blog > ul {
+        display: grid;
+        gap: 1.08rem;
+        padding: 0;
+        margin-bottom: 1.1rem;
+    }
+
     .arrow {
         padding-left: 3px;
+        transition: padding-left 220ms ease;
     }
-    h4:hover .arrow{
-        padding-left: 8px;
+
+    a {
+        display: inline-flex;
+        text-decoration: none;
+        align-items: center;
+        color: #d8d8d8;
+        font-weight: 500;
     }
-    li {
-        list-style: none;
-    }
-    li:hover {
+
+    a:hover {
         color: #50cbc7;
-        cursor: pointer;
     }
+
+    a:hover .arrow {
+        padding-left: 5px;
+    }
+
     @media (max-width: 768px) {
         h3 {
             display: block;
             color: #d8d8d8;
         }
+
         aside {
             margin-top: 20px;
         }
     }
+
     @media (max-width: 1300px) {
         h3 {
             display: block;
             color: #d8d8d8;
         }
+
         aside {
             width: 100%;
-        }
-        ul {
-            padding: 0;
-            text-align: center;
         }
     }
 </style>

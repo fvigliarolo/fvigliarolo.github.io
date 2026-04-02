@@ -1,8 +1,7 @@
 ---
 import LayoutProjects from "../../layouts/LayoutProjects.astro";
 import ArrowLeft from "../../components/icons/ArrowLeft.astro";
-import ArrowRight from "../../components/icons/ArrowRight.astro";
-import Badge from "../../components/Badge.astro";
+import BlogPostCard from "../../components/BlogPostCard.astro";
 
 const allPosts = await Astro.glob("./*.md");
 const posts = allPosts.sort((a, b) => b.frontmatter.id - a.frontmatter.id);
@@ -20,23 +19,7 @@ const posts = allPosts.sort((a, b) => b.frontmatter.id - a.frontmatter.id);
     <section class="blog-list">
         <ul>
             {posts.map(({ frontmatter }) => (
-                <li onclick={`window.location.href='/blog/${frontmatter.id}'`}>
-                    <div class="post-data">
-                        <div class="post-meta">
-                            <span class="project-type">{frontmatter.project_type}</span>
-                            <span class="date">{frontmatter.date}</span>
-                        </div>
-                        <p class="title">
-                            {frontmatter.title}
-                            <ArrowRight class="arrow" />
-                        </p>
-                        <ul class="tecnologies">
-                            {frontmatter.tecnologies.map((tecnology) => (
-                                <Badge>{tecnology}</Badge>
-                            ))}
-                        </ul>
-                    </div>
-                </li>
+                <BlogPostCard frontmatter={frontmatter} href={`/blog/${frontmatter.id}`} />
             ))}
         </ul>
     </section>
@@ -84,133 +67,10 @@ const posts = allPosts.sort((a, b) => b.frontmatter.id - a.frontmatter.id);
         margin: 0;
     }
 
-    .blog-list > ul > li {
-        list-style: none;
-        display: block;
-        position: relative;
-        width: 100%;
-        margin: 0;
-        padding: 0.9rem 1rem;
-        border: 1px solid rgba(216, 216, 216, 0.08);
-        border-radius: 18px;
-        overflow: hidden;
-        background:
-            linear-gradient(135deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018)),
-            rgba(12, 24, 56, 0.45);
-        transition:
-            transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
-            border-color 320ms ease,
-            box-shadow 320ms ease,
-            background 320ms ease;
-    }
-
-    .blog-list > ul > li:hover {
-        background:
-            linear-gradient(135deg, rgba(80, 203, 199, 0.09), rgba(77, 124, 255, 0.05)),
-            rgba(16, 28, 61, 0.82);
-        cursor: pointer;
-        transform: translateY(-5px) scale(1.01);
-        border-color: rgba(80, 203, 199, 0.18);
-        box-shadow:
-            0 20px 44px rgba(7, 12, 31, 0.22),
-            0 0 0 1px rgba(255, 255, 255, 0.03) inset;
-    }
-
-    .blog-list > ul > li:hover .title {
-        color: #50cbc7;
-    }
-
-    .blog-list > ul > li:hover .arrow {
-        padding-left: 8px;
-    }
-
-    .post-data {
-        display: grid;
-        gap: 0.5rem;
-        width: 100%;
-        position: relative;
-        z-index: 1;
-    }
-
-    .post-meta {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 0.6rem;
-        justify-content: space-between;
-        width: 100%;
-    }
-
-    .project-type {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-        padding: 0.28rem 0.65rem;
-        border-radius: 999px;
-        color: #d8d8d8;
-        font-size: 0.72rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(216, 216, 216, 0.1);
-        white-space: nowrap;
-    }
-
-    .project-type::before {
-        content: "";
-        width: 0.45rem;
-        height: 0.45rem;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #50cbc7, #4d7cff);
-        box-shadow: 0 0 12px rgba(80, 203, 199, 0.3);
-    }
-
-    .date {
-        color: #50cbc7;
-        font-size: 0.75rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        font-weight: 600;
-    }
-
-    .title {
-        font-size: 1.12em;
-        font-weight: 500;
-        line-height: 1.35;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.15rem;
-        margin: 0;
-    }
-
-    .arrow {
-        padding-left: 3px;
-        transition: padding-left 220ms ease;
-    }
-
-    .tecnologies {
-        padding: 0;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.3rem;
-        margin: 0;
-        width: 100%;
-    }
-
-    .tecnologies li {
-        list-style: none;
-    }
-
     @media (max-width: 768px) {
         .blog-header,
         .blog-list {
             width: 100%;
-        }
-
-        .post-meta {
-            align-items: flex-start;
-            flex-direction: column;
-            gap: 0.55rem;
         }
     }
 </style>
