@@ -8,6 +8,11 @@ const projects = [
         Each tenant can manage its own branches, promotions, loyalty rules, and branding while sharing the same platform.
 
         The system also includes QR-based redemption flows, JWT-based role handling, and tenant resolution through subdomains or request metadata.`,
+        description_es: `Una plataforma multi-tenant de fidelizacion para cadenas de estaciones de servicio, con backend en .NET, backoffice administrativo, aplicacion web para usuarios finales y app mobile.
+
+        Cada tenant puede gestionar sus sucursales, promociones, reglas de fidelizacion e identidad visual compartiendo la misma plataforma.
+
+        El sistema tambien incluye flujos de canje por QR, manejo de roles mediante JWT y resolucion de tenant por subdominios o metadatos de la request.`,
         url: "",
         extended_description: [`ServiPuntosUy was a college project, but its scope pushed us far beyond a basic academic CRUD application.`,
             `We had to design a multi-tenant platform where each chain of gas stations could have its own configuration, users, loyalty behavior, and visual customization while sharing the same backend.`,
@@ -17,6 +22,7 @@ const projects = [
             `Beyond feature development, the project also required documentation, environment setup, API coordination, and teamwork across backend, frontend, and mobile layers.`],
         github: ["https://github.com/maite-martinez/tecnoinf-dotnet-be.git"],
         goal: "College",
+        goal_es: "Facultad",
         tecnologies: [".NET", "ASP.NET Core", "React", ".NET MAUI", "SQL Server", "Docker", "JWT", "Firebase"],
         tasks: ["Architecture Design", "Backend Development", "Teamwork", "Documentation", "Multi-tenancy"],
         tags: ["Fullstack Development", "Backend Development", "Multi-Tenant Architecture", "API Design", "Mobile Development", "Teamwork", "Documentation", "SQL Server"]
@@ -32,6 +38,13 @@ const projects = [
         Additionally, each frontend would have its own associated database, allowing data isolation between clients.
         
         On the frontend side, there is a calendar that shows available time slots to book appointments at the barbershop.`,
+        description_es: `Sistema fullstack para gestionar agendas de barberias.
+
+        El objetivo fue desarrollar un backend capaz de atender requests desde distintos frontends autorizados.
+        
+        Ademas, cada frontend tiene su propia base de datos asociada, permitiendo aislamiento de datos entre clientes.
+        
+        Del lado del frontend, hay un calendario que muestra horarios disponibles para reservar citas en la barberia.`,
         url: "https://calendar.agenduy.com/",
         extended_description: [`In this project, I aimed to offer the system I had developed in version 1 as a service. To achieve this, I faced the challenge of improving the development practices used previously and enhancing the user experience.`,
             `The main tasks I had to undertake included refactoring the frontend and improving the REST API standards for the backend.`,
@@ -45,6 +58,7 @@ const projects = [
         },
         github: [],
         goal: "Side project",
+        goal_es: "Proyecto personal",
         tecnologies: ["Html", "CSS", "React", "MySQL", "Node.js"],
         tasks: ["Development", "Infrastructure", "Deployment"],
         tags: ["Web Development", "Responsive Web Development", "Backend Development", "Web Design", "Server Administration", "Optimization", "Refactoring", "Cloud Computing", "Backend Development", "Fullstack Development"]
@@ -57,6 +71,10 @@ const projects = [
         From a dashboard, teachers are responsible for creating daily boxing exercise routines.
         Meanwhile, students can view the routine that the teacher has created.
         This was a simple project aimed at learning how to use backend and databases as services. In this case, Supabase was used.`,
+        description_es: `Este sistema tiene dos roles: alumno y profesor.
+        Desde un dashboard, los profesores crean rutinas diarias de boxeo.
+        Mientras tanto, los alumnos pueden consultar la rutina que el profesor preparo.
+        Fue un proyecto simple orientado a aprender a usar backend y bases de datos como servicio. En este caso, se utilizo Supabase.`,
         url: "",
         extended_description: [`I started this project while looking for a solution to a daily problem I faced at my gym. During my boxing training sessions, there were too many students, which overwhelmed the coach and caused delays when I needed to ask about the day's workout routine.`,
             `To solve this, I decided to develop a system where the coach could create the daily workout plan, allowing students to access the website and view the routine and training order for each day.`,
@@ -66,6 +84,7 @@ const projects = [
         ],
         github: ["https://github.com/fvigliarolo/box-assistant"],
         goal: "Practice",
+        goal_es: "Practica",
         tecnologies: ["Html", "CSS", "React", "Deploy Vercel", "Supabase", "NPM"],
         tasks: ["Development", "Deployment"],
         tags: ["Web Development", "Responsive Web Development", "Web Design", "Backend as a Service", "Infrastructure Administration"]

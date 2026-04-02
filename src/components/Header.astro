@@ -7,9 +7,9 @@ import Goodreads from "./icons/Goodreads.astro";
 import Line from "./icons/Line.astro";
 
 const navItems = [
-    { title: "About me ", label: "/about", url: "./#about", class: "options active" },
-    { title: "Projects", label: "projects", url: "./#projects", class: "options"  },
-    { title: "Blog", label: "/blog", url: "./#blog", class: "options"  },
+    { title: { en: "About me ", es: "Sobre mi" }, label: "/about", url: "./#about", class: "options active" },
+    { title: { en: "Projects", es: "Proyectos" }, label: "projects", url: "./#projects", class: "options"  },
+    { title: { en: "Blog", es: "Blog" }, label: "/blog", url: "./#blog", class: "options"  },
 ];
 
 const socialItems = [
@@ -30,8 +30,12 @@ const socialItems = [
 <header>
     <div class="Description">
         <h1>Federico Vigliarolo</h1>
-        <p><strong>Fullstack Developer</strong></p>
-        <p>
+        <p><strong data-locale-en="Fullstack Developer" data-locale-es="Desarrollador Fullstack">Fullstack Developer</strong></p>
+        <p
+            data-locale-mode="html"
+            data-locale-en="I build fullstack applications with javascript stack.<br class='hide-on-mobile'/>The lefting hours of the day, I work as a QA Engineer."
+            data-locale-es="Construyo aplicaciones fullstack con stack javascript.<br class='hide-on-mobile'/>Durante las otras horas del dia, trabajo como QA Engineer."
+        >
             I build fullstack applications with javascript stack.
             <br class="hide-on-mobile"/>
             The lefting hours of the day, I work as a QA Engineer.
@@ -43,7 +47,7 @@ const socialItems = [
                 <div class={item.class} data-nav-target={item.url} onclick="document.querySelectorAll('.options').forEach(el => el.classList.remove('active'));this.classList.add('active');">
                     <Line class="line"/>
                     <a href={item.url} class="nav-item">
-                        {item.title}
+                        <span data-locale-en={item.title.en} data-locale-es={item.title.es}>{item.title.en}</span>
                     </a>
                 </div>
             ))
@@ -118,6 +122,7 @@ const socialItems = [
             window.history.replaceState(null, "", targetSelector.replace("./", ""));
         });
     });
+
 </script>
 
 <style>
@@ -322,7 +327,6 @@ const socialItems = [
         strong {
             font-size: 1rem;
         }
-
         .socialItems {
             display: flex;
             flex-direction: row;

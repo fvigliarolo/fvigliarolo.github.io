@@ -1,13 +1,45 @@
 ---
 import LayoutRight from "../layouts/LayoutRight.astro";
+import LocaleSwitcher from "./LocaleSwitcher.astro";
 import About from "./About.astro";
 import Projects from "./Projects.astro";
 import Blog from "./Blog.astro";
 ---
 
 <LayoutRight>
+    <div class="right-locale">
+        <LocaleSwitcher />
+    </div>
     <About />
     <Projects />
     <Blog />
 </LayoutRight>
+
+<style>
+    .right-locale {
+        display: flex;
+        justify-content: flex-end;
+        width: calc(100% + clamp(1.5rem, 2vw, 2.5rem));
+        margin-right: calc(clamp(1.5rem, 2vw, 2.5rem) * -1);
+        margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 1300px) {
+        .right-locale {
+            position: fixed;
+            top: 1.4rem;
+            right: clamp(1.25rem, 3vw, 2rem);
+            z-index: 1200;
+            margin-bottom: 0;
+            width: auto;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .right-locale {
+            top: 1.25rem;
+            right: 1.25rem;
+        }
+    }
+</style>
 

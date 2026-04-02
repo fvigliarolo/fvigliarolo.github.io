@@ -5,7 +5,7 @@ import Badge from "./Badge.astro";
 ---
 
 <section id="projects" class="projects">
-    <h3>Projects</h3>
+    <h3 data-locale-en="Projects" data-locale-es="Proyectos">Projects</h3>
     <ul>
         {
             projects.slice(0, 3).map(
@@ -15,13 +15,13 @@ import Badge from "./Badge.astro";
                     >
                         <div class="project-data">
                             <div class="project-meta">
-                                <span class="goal">{project.goal}</span>
-                                <span class="project-type">{project.project_type}</span>
+                                <span class="goal" data-locale-en={project.goal} data-locale-es={project.goal_es ?? project.goal}>{project.goal}</span>
+                                <span class="project-type" data-locale-en={project.project_type} data-locale-es={project.project_type}>{project.project_type}</span>
                             </div>
                             <p class="title">
                                 {project.title} <ArrowRight class="arrow" />{" "}
                             </p>
-                            <p class="description">{project.description}</p>
+                            <p class="description" data-locale-en={project.description} data-locale-es={project.description_es ?? project.description}>{project.description}</p>
                             <ul class="tecnologies">
                                 {project.tecnologies.map((tecnology) => (
                                     <Badge>{tecnology}</Badge>
@@ -33,7 +33,7 @@ import Badge from "./Badge.astro";
             )
         }
     </ul>
-    <a href="./projects">See more projects <ArrowRight class="arrow" /> </a>
+    <a href="./projects"><span data-locale-en="See more projects" data-locale-es="Ver mas proyectos">See more projects</span> <ArrowRight class="arrow" /> </a>
 </section>
 
 <style>

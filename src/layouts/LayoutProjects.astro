@@ -1,5 +1,6 @@
 ---
 import AmbientBackground from "../components/AmbientBackground.astro";
+import LocaleSwitcher from "../components/LocaleSwitcher.astro";
 import "@fontsource-variable/onest";
 ---
 
@@ -15,6 +16,9 @@ import "@fontsource-variable/onest";
 	<body>
 		<AmbientBackground />
 		<div class="projects-shell">
+			<div class="floating-locale">
+				<LocaleSwitcher />
+			</div>
 			<slot />
 		</div>
 	</body>
@@ -52,6 +56,12 @@ import "@fontsource-variable/onest";
         width: min(92%, 1040px);
         margin: 40px auto 64px;
     }
+    .floating-locale {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1200;
+    }
     h2{
         font-weight: 300;
     }
@@ -72,8 +82,13 @@ import "@fontsource-variable/onest";
     }
 
     @media (max-width: 768px) {
+        .floating-locale {
+            position: fixed;
+            top: 1.25rem;
+            right: 1.25rem;
+        }
         .projects-shell {
-            margin: 0;
+            margin: 3.75rem 0 0;
             width: 100%;
             padding: 1.25rem;
         }
@@ -83,9 +98,14 @@ import "@fontsource-variable/onest";
     }
 
     @media (max-width: 1300px){
+        .floating-locale {
+            position: fixed;
+            top: 1.4rem;
+            right: clamp(1.25rem, 3vw, 2rem);
+        }
         .projects-shell {
             width: min(94%, 1040px);
-            margin: 24px auto 48px;
+            margin: 4.5rem auto 48px;
         }
     }
 </style>

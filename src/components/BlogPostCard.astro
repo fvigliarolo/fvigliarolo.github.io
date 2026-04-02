@@ -3,6 +3,7 @@ const { frontmatter, href } = Astro.props;
 const description =
     frontmatter.excerpt ??
     "Technical notes, project stories, and lessons learned from real development work.";
+const descriptionEs = frontmatter.excerpt_es ?? description;
 ---
 
 <li onclick={`window.location.href='${href}'`}>
@@ -12,7 +13,7 @@ const description =
             <span class="date">{frontmatter.date}</span>
         </div>
         <p class="title">{frontmatter.title}</p>
-        <p class="description">{description}</p>
+        <p class="description" data-locale-en={description} data-locale-es={descriptionEs}>{description}</p>
     </div>
 </li>
 

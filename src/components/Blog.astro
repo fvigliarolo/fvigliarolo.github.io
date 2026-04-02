@@ -6,7 +6,7 @@ const allPosts = await Astro.glob("../pages/blog/*.md");
 ---
 
 <aside class="blog" id="blog">
-    <h3>Blog</h3>
+    <h3 data-locale-en="Blog" data-locale-es="Blog">Blog</h3>
     <ul>
         {Object.entries(allPosts)
             .sort((a, b) => b[1].frontmatter.id - a[1].frontmatter.id)
@@ -15,7 +15,7 @@ const allPosts = await Astro.glob("../pages/blog/*.md");
                 <BlogPostCard frontmatter={frontmatter} href={`./blog/${frontmatter.id}`} />
             ))}
     </ul>
-    <a href="./blog">See more posts <ArrowRight class="arrow" /> </a>
+    <a href="./blog"><span data-locale-en="See more posts" data-locale-es="Ver mas articulos">See more posts</span> <ArrowRight class="arrow" /> </a>
 </aside>
 
 <style>
