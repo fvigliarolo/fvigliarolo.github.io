@@ -6,13 +6,16 @@ import Link from "../components/icons/Link.astro";
 import Github from "../components/icons/github.astro";
 
 const { frontmatter } = Astro.props;
+const isBlogPost = Boolean(frontmatter.author) && Boolean(frontmatter.date) && !frontmatter.goal;
+const backHref = isBlogPost ? "/blog" : "../";
+const backLabel = isBlogPost ? "Blog" : "Projects";
 ---
 
 <LayoutProjects>
     <article class="project-post">
         <header class="project-header">
-            <a href="../" class="back-link">
-                <ArrowLeft class="arrowLeft" /> Projects
+            <a href={backHref} class="back-link">
+                <ArrowLeft class="arrowLeft" /> {backLabel}
             </a>
 
             <div class="hero-copy">
@@ -21,10 +24,17 @@ const { frontmatter } = Astro.props;
                         <p class="summary-value project-type-pill">{frontmatter.project_type}</p>
                     </div>
 
-                    <div class="summary-group summary-inline">
-                        <p class="summary-label">Scope</p>
-                        <p class="summary-value project-goal">{frontmatter.goal}</p>
-                    </div>
+                    {isBlogPost ? (
+                        <div class="summary-group summary-inline">
+                            <p class="summary-label">Published</p>
+                            <p class="summary-value project-goal">{frontmatter.date}</p>
+                        </div>
+                    ) : (
+                        <div class="summary-group summary-inline">
+                            <p class="summary-label">Scope</p>
+                            <p class="summary-value project-goal">{frontmatter.goal}</p>
+                        </div>
+                    )}
                 </div>
                 <h1>{frontmatter.title}</h1>
             </div>
@@ -50,7 +60,7 @@ const { frontmatter } = Astro.props;
                 </div>
 
                 <div class="summary-group technologies-group">
-                    <p class="summary-label">Technologies</p>
+                    <p class="summary-label">{isBlogPost ? "Topics" : "Technologies"}</p>
                     <ul class="tecnologies">
                         {
                             frontmatter.tecnologies.map((tecnology) => (
