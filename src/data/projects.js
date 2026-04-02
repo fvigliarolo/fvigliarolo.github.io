@@ -1,5 +1,27 @@
 const projects = [
     {
+        title: "ServiPuntosUy",
+        id: 9,
+        project_type: "Fullstack",
+        description: `A multi-tenant loyalty platform for gas station chains, with a .NET backend, an administrative backoffice, an end-user web app, and a mobile app.
+
+        Each tenant can manage its own branches, promotions, loyalty rules, and branding while sharing the same platform.
+
+        The system also includes QR-based redemption flows, JWT-based role handling, and tenant resolution through subdomains or request metadata.`,
+        url: "",
+        extended_description: [`ServiPuntosUy was a college project, but its scope pushed us far beyond a basic academic CRUD application.`,
+            `We had to design a multi-tenant platform where each chain of gas stations could have its own configuration, users, loyalty behavior, and visual customization while sharing the same backend.`,
+            `The solution combined a .NET backend, a .NET MVC administrative interface, an end-user web frontend built with React, and a mobile application built with .NET MAUI.`,
+            `One of the key technical challenges was tenant resolution. Depending on the scenario, the backend identifies the tenant from JWT claims, subdomains, or request headers, which allowed the same system to support administrators, end users, and mobile clients.`,
+            `Another important feature was the QR redemption flow, where users can generate a redemption token and branches can process it through the platform.`,
+            `Beyond feature development, the project also required documentation, environment setup, API coordination, and teamwork across backend, frontend, and mobile layers.`],
+        github: ["https://github.com/maite-martinez/tecnoinf-dotnet-be.git"],
+        goal: "College",
+        tecnologies: [".NET", "ASP.NET Core", "React", ".NET MAUI", "SQL Server", "Docker", "JWT", "Firebase"],
+        tasks: ["Architecture Design", "Backend Development", "Teamwork", "Documentation", "Multi-tenancy"],
+        tags: ["Fullstack Development", "Backend Development", "Multi-Tenant Architecture", "API Design", "Mobile Development", "Teamwork", "Documentation", "SQL Server"]
+    },
+    {
         title: "Agenda Barber System v2",
         id: 1,
         project_type: "Fullstack",
