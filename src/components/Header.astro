@@ -40,7 +40,7 @@ const socialItems = [
     <nav>
         {
             navItems.map((item) => (
-                <div class={item.class} onclick="document.querySelectorAll('.options').forEach(el => el.classList.remove('active'));this.classList.add('active');">
+                <div class={item.class} data-nav-target={item.url} onclick="document.querySelectorAll('.options').forEach(el => el.classList.remove('active'));this.classList.add('active');">
                     <Line class="line"/>
                     <a href={item.url} class="nav-item">
                         {item.title}
@@ -71,6 +71,54 @@ const socialItems = [
         }
     </div>
 </header>
+
+<script>
+    const easeInOutCubic = (t) =>
+        t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    const smoothScrollTo = (targetY, duration = 950) => {
+        const startY = window.scrollY;
+        const distance = targetY - startY;
+        const startTime = performance.now();
+
+        const step = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easedProgress = easeInOutCubic(progress);
+
+            window.scrollTo(0, startY + distance * easedProgress);
+
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+
+        window.requestAnimationFrame(step);
+    };
+
+    document.querySelectorAll("[data-nav-target]").forEach((item) => {
+        item.addEventListener("click", (event) => {
+            const anchor = item.querySelector(".nav-item");
+            const targetSelector = item.getAttribute("data-nav-target");
+
+            if (!anchor || !targetSelector?.startsWith("./#")) {
+                return;
+            }
+
+            const target = document.querySelector(targetSelector.replace("./", ""));
+
+            if (!target) {
+                return;
+            }
+
+            event.preventDefault();
+
+            const targetY = target.getBoundingClientRect().top + window.scrollY - 24;
+            smoothScrollTo(targetY);
+            window.history.replaceState(null, "", targetSelector.replace("./", ""));
+        });
+    });
+</script>
 
 <style>
     .options{
