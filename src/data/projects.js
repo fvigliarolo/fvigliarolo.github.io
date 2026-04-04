@@ -1,33 +1,5 @@
 const projects = [
     {
-        title: "ServiPuntosUy",
-        id: 9,
-        project_type: "Fullstack",
-        description: `A multi-tenant loyalty platform for gas station chains, with a .NET backend, an administrative backoffice, an end-user web app, and a mobile app.
-
-        Each tenant can manage its own branches, promotions, loyalty rules, and branding while sharing the same platform.
-
-        The system also includes QR-based redemption flows, JWT-based role handling, and tenant resolution through subdomains or request metadata.`,
-        description_es: `Una plataforma multi-tenant de fidelizacion para cadenas de estaciones de servicio, con backend en .NET, backoffice administrativo, aplicacion web para usuarios finales y app mobile.
-
-        Cada tenant puede gestionar sus sucursales, promociones, reglas de fidelizacion e identidad visual compartiendo la misma plataforma.
-
-        El sistema tambien incluye flujos de canje por QR, manejo de roles mediante JWT y resolucion de tenant por subdominios o metadatos de la request.`,
-        url: "",
-        extended_description: [`ServiPuntosUy was a college project, but its scope pushed us far beyond a basic academic CRUD application.`,
-            `We had to design a multi-tenant platform where each chain of gas stations could have its own configuration, users, loyalty behavior, and visual customization while sharing the same backend.`,
-            `The solution combined a .NET backend, a .NET MVC administrative interface, an end-user web frontend built with React, and a mobile application built with .NET MAUI.`,
-            `One of the key technical challenges was tenant resolution. Depending on the scenario, the backend identifies the tenant from JWT claims, subdomains, or request headers, which allowed the same system to support administrators, end users, and mobile clients.`,
-            `Another important feature was the QR redemption flow, where users can generate a redemption token and branches can process it through the platform.`,
-            `Beyond feature development, the project also required documentation, environment setup, API coordination, and teamwork across backend, frontend, and mobile layers.`],
-        github: ["https://github.com/maite-martinez/tecnoinf-dotnet-be.git"],
-        goal: "College",
-        goal_es: "Facultad",
-        tecnologies: [".NET", "ASP.NET Core", "React", ".NET MAUI", "SQL Server", "Docker", "JWT", "Firebase"],
-        tasks: ["Architecture Design", "Backend Development", "Teamwork", "Documentation", "Multi-tenancy"],
-        tags: ["Fullstack Development", "Backend Development", "Multi-Tenant Architecture", "API Design", "Mobile Development", "Teamwork", "Documentation", "SQL Server"]
-    },
-    {
         title: "Agenda Barber System v2",
         id: 1,
         project_type: "Fullstack",
@@ -56,6 +28,53 @@ const projects = [
         tecnologies: ["Html", "CSS", "React", "MySQL", "Node.js"],
         tasks: ["Development", "Infrastructure", "Deployment"],
         tags: ["Web Development", "Responsive Web Development", "Backend Development", "Web Design", "Server Administration", "Optimization", "Refactoring", "Cloud Computing", "Backend Development", "Fullstack Development"]
+    },
+    {
+        title: "ServiPuntosUy",
+        id: 9,
+        project_type: "Fullstack",
+        description: `A multi-tenant loyalty platform for gas station chains, with a .NET backend, an administrative backoffice, an end-user web app, and a mobile app.
+
+        Each tenant can manage its own branches, promotions, loyalty rules, and branding while sharing the same platform.
+
+        The system also includes QR-based redemption flows, JWT-based role handling, and tenant resolution through subdomains or request metadata.`,
+        description_es: `Una plataforma multi-tenant de fidelizacion para cadenas de estaciones de servicio, con backend en .NET, backoffice administrativo, aplicacion web para usuarios finales y app mobile.
+
+        Cada tenant puede gestionar sus sucursales, promociones, reglas de fidelizacion e identidad visual compartiendo la misma plataforma.
+
+        El sistema tambien incluye flujos de canje por QR, manejo de roles mediante JWT y resolucion de tenant por subdominios o metadatos de la request.`,
+        url: "",
+        extended_description: [`ServiPuntosUy was a college project, but its scope pushed us far beyond a basic academic CRUD application.`,
+            `We had to design a multi-tenant platform where each chain of gas stations could have its own configuration, users, loyalty behavior, and visual customization while sharing the same backend.`,
+            `The solution combined a .NET backend, a .NET MVC administrative interface, an end-user web frontend built with React, and a mobile application built with .NET MAUI.`,
+            `One of the key technical challenges was tenant resolution. Depending on the scenario, the backend identifies the tenant from JWT claims, subdomains, or request headers, which allowed the same system to support administrators, end users, and mobile clients.`,
+            `Another important feature was the QR redemption flow, where users can generate a redemption token and branches can process it through the platform.`,
+            `Beyond feature development, the project also required documentation, environment setup, API coordination, and teamwork across backend, frontend, and mobile layers.`],
+        github: ["https://github.com/maite-martinez/tecnoinf-dotnet-be.git"],
+        goal: "College",
+        goal_es: "Facultad",
+        tecnologies: [".NET", "ASP.NET Core", "React", ".NET MAUI", "SQL Server", "Docker", "JWT", "Firebase"],
+        tasks: ["Architecture Design", "Backend Development", "Teamwork", "Documentation", "Multi-tenancy"],
+        tags: ["Fullstack Development", "Backend Development", "Multi-Tenant Architecture", "API Design", "Mobile Development", "Teamwork", "Documentation", "SQL Server"]
+    },
+    {
+        title: "Alum-net",
+        id: 10,
+        project_type: "Fullstack",
+        description: `A virtual learning environment built as my final degree project, with a Java backend, a shared React Native codebase for web and Android, and features for administrators, teachers, and students.`,
+        description_es: `Un entorno virtual de aprendizaje desarrollado como mi tesis o proyecto de grado, con backend en Java, una base compartida en React Native para web y Android, y funcionalidades para administradores, docentes y estudiantes.`,
+        url: "",
+        extended_description: [`Alum-net was my final degree project for the Tecnologo en Informatica program. The challenge was to design and build an initial virtual learning environment for an educational institution, combining academic analysis with a real software implementation.`,
+            `The system included three user roles: administrator, teacher, and student. Administrators could manage users and courses, teachers could organize course content and academic activities, and students could access materials, submit tasks, participate in forums, and review their grades from both web and mobile.`,
+            `From a technical perspective, we built a Java backend with Spring Boot and a frontend based on React Native with Expo, reusing a large portion of the codebase between the web client and the Android app. We also integrated PostgreSQL, MongoDB, Keycloak, WebSockets, S3, Postman, and GitHub Actions workflows.`,
+            `One of the biggest challenges was the integration layer: coordinating backend and frontend changes, validating JWT tokens with Keycloak and Spring Security, and keeping the system stable while multiple parts evolved at the same time.`,
+            `The project also included testing, deployment pipelines, Docker-based environments, and production-oriented concerns such as reverse proxy configuration, certificates, and deployment automation. That combination made it much closer to a real product than to a typical academic assignment.`],
+        github: ["https://github.com/alum-net/alum-net.git"],
+        goal: "Final Degree Project",
+        goal_es: "Tesis",
+        tecnologies: ["Java", "Spring Boot", "React Native", "Expo", "TypeScript", "PostgreSQL", "MongoDB", "Keycloak", "WebSockets", "Docker", "Postman", "GitHub Actions"],
+        tasks: ["Architecture Design", "Frontend Development", "Teamwork", "Documentation", "R&D"],
+        tags: ["Fullstack Development", "Mobile Development", "Architecture", "Authentication", "Real-time Features", "CI/CD", "Teamwork", "Academic Project"]
     },
     {
         title: "Box Assistant",

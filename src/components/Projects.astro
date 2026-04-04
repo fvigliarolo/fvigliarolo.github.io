@@ -2,13 +2,18 @@
 import ArrowRight from "./icons/ArrowRight.astro";
 import projects from "../data/projects";
 import Badge from "./Badge.astro";
+
+const featuredProjectIds = [1, 9, 10];
+const featuredProjects = featuredProjectIds
+    .map((id) => projects.find((project) => project.id === id))
+    .filter(Boolean);
 ---
 
 <section id="projects" class="projects">
     <h3 data-locale-en="Projects" data-locale-es="Proyectos">Projects</h3>
     <ul>
         {
-            projects.slice(0, 3).map(
+            featuredProjects.map(
                 (project) => (
                     <li
                         onclick={`window.location.href='./projects/${project.id}'`}
