@@ -74,7 +74,7 @@ const projects = [
         goal_es: "Tesis",
         tecnologies: ["Java", "Spring Boot", "React Native", "Expo", "TypeScript", "PostgreSQL", "MongoDB", "Keycloak", "WebSockets", "Docker", "Postman", "GitHub Actions"],
         tasks: ["Architecture Design", "Frontend Development", "Teamwork", "Documentation", "R&D"],
-        tags: ["Fullstack Development", "Mobile Development", "Architecture", "Authentication", "Real-time Features", "CI/CD", "Teamwork", "Academic Project"]
+        tags: ["Fullstack Development", "Mobile Development", "Architecture", "Authentication", "Real-time Features", "CI/CD", "Teamwork"]
     },
     {
         title: "Box Assistant",
