@@ -10,7 +10,7 @@ const projects = [
         Additionally, each frontend would have its own associated database, allowing data isolation between clients.
         
         On the frontend side, there is a calendar that shows available time slots to book appointments at the barbershop.`,
-        description_es: `Un sistema fullstack de agenda para barberias disenado como servicio. El backend atiende peticiones de multiples frontends en una whitelist, cada uno con su propia base de datos para aislar datos entre clientes. El frontend incluye un calendario de reservas. El proyecto incluye refactorizacion con React, mejoras en practicas REST, optimizacion de rendimiento y despliegue en VPS y hosting.`,
+        description_es: `Un sistema fullstack de agenda para barberías diseñado como servicio. El backend atiende peticiones de múltiples frontends en una whitelist, cada uno con su propia base de datos para aislar datos entre clientes. El frontend incluye un calendario de reservas. El proyecto incluye refactorización con React, mejoras en prácticas REST, optimización de rendimiento y despliegue en VPS y hosting.`,
         url: "https://calendar.agenduy.com/",
         extended_description: [`In this project, I aimed to offer the system I had developed in version 1 as a service. To achieve this, I faced the challenge of improving the development practices used previously and enhancing the user experience.`,
             `The main tasks I had to undertake included refactoring the frontend and improving the REST API standards for the backend.`,
@@ -38,11 +38,11 @@ const projects = [
         Each tenant can manage its own branches, promotions, loyalty rules, and branding while sharing the same platform.
 
         The system also includes QR-based redemption flows, JWT-based role handling, and tenant resolution through subdomains or request metadata.`,
-        description_es: `Una plataforma multi-tenant de fidelizacion para cadenas de estaciones de servicio, con backend en .NET, backoffice administrativo, aplicacion web para usuarios finales y app mobile.
+        description_es: `Una plataforma multi-tenant de fidelización para cadenas de estaciones de servicio, con backend en .NET, backoffice administrativo, aplicación web para usuarios finales y app mobile.
 
-        Cada tenant puede gestionar sus sucursales, promociones, reglas de fidelizacion e identidad visual compartiendo la misma plataforma.
+        Cada tenant puede gestionar sus sucursales, promociones, reglas de fidelización e identidad visual compartiendo la misma plataforma.
 
-        El sistema tambien incluye flujos de canje por QR, manejo de roles mediante JWT y resolucion de tenant por subdominios o metadatos de la request.`,
+        El sistema también incluye flujos de canje por QR, manejo de roles mediante JWT y resolución de tenant por subdominios o metadatos de la request.`,
         url: "",
         extended_description: [`ServiPuntosUy was a college project, but its scope pushed us far beyond a basic academic CRUD application.`,
             `We had to design a multi-tenant platform where each chain of gas stations could have its own configuration, users, loyalty behavior, and visual customization while sharing the same backend.`,
@@ -94,7 +94,7 @@ const projects = [
         ],
         github: ["https://github.com/fvigliarolo/box-assistant"],
         goal: "Practice",
-        goal_es: "Practica",
+        goal_es: "Práctica",
         tecnologies: ["Html", "CSS", "React", "Deploy Vercel", "Supabase", "NPM"],
         tasks: ["Development", "Deployment"],
         tags: ["Web Development", "Responsive Web Development", "Web Design", "Backend as a Service", "Infrastructure Administration"]
@@ -104,7 +104,7 @@ const projects = [
         id: 3,
         project_type: "Backend",
         description: `A hospital system where patients and medical records are registered. The records can then be queried either generally or with specific parameters.`,
-        description_es: `Un sistema hospitalario donde se registran pacientes e historias clinicas, que pueden consultarse de forma general o con parametros. Utiliza Firebase como base de datos NoSQL, incluye pruebas automatizadas con Postman/Newman y despliegue con Docker y Jenkins.`,
+        description_es: `Un sistema hospitalario donde se registran pacientes e historias clínicas, que pueden consultarse de forma general o con parámetros. Utiliza Firebase como base de datos NoSQL, incluye pruebas automatizadas con Postman/Newman y despliegue con Docker y Jenkins.`,
         url: "College",
         extended_description: [`In this university assignment, along with two classmates, we faced the challenge of creating a system that used a NoSQL database service of our choice. As a team, we selected Firebase.`,
             `The task consisted of developing a backend with any technology we wanted, as long as it performed NoSQL queries. Additionally, the final result had to be delivered in Docker and include automated tests triggered by an orchestrator.`,
@@ -126,7 +126,7 @@ const projects = [
         Clients who accessed the system could view all museums registered in the system, including their address, opening hours, exhibitions, tours, and activities.
         App administrators are responsible for registering museums and managing the bulletin board generated by each museum's publications.
         Museum administrators can manage schedules, input activities (with quotas), assign and manage the inventory of materials needed for activities, maintain exhibition inventory, and handle the museum's agenda (calendar).`,
-        description_es: `Un sistema web de museos con tres perfiles de usuario: clientes, administradores de la app y administradores de museos. Los clientes pueden ver museos con su direccion, horarios, exposiciones, tours y actividades. Los administradores de la app gestionan el alta de museos y la cartelera de publicaciones, mientras que los administradores de museos manejan horarios, actividades con cupos, inventario de materiales y exposiciones, y la agenda del museo.`,
+        description_es: `Un sistema web de museos con tres perfiles de usuario: clientes, administradores de la app y administradores de museos. Los clientes pueden ver museos con su dirección, horarios, exposiciones, tours y actividades. Los administradores de la app gestionan el alta de museos y la cartelera de publicaciones, mientras que los administradores de museos manejan horarios, actividades con cupos, inventario de materiales y exposiciones, y la agenda del museo.`,
         url: "College",
         extended_description: "",
         github: ["https://github.com/fvigliarolo/MuseosApp"],
@@ -147,12 +147,12 @@ const projects = [
         Additionally, each frontend would have its own associated database, allowing data isolation between clients.
         
         On the frontend side, there is a calendar that shows available time slots to book appointments at the barbershop.`,
-        description_es: `Un sistema de agenda para una barberia con una web frontend que incluye un calendario para mostrar la disponibilidad horaria. El backend procesa las solicitudes de reserva y provee la disponibilidad diaria.`,
+        description_es: `Un sistema de agenda para una barbería con una web frontend que incluye un calendario para mostrar la disponibilidad horaria. El backend procesa las solicitudes de reserva y provee la disponibilidad diaria.`,
         url: "",
         extended_description: "",
         github: ["https://github.com/fvigliarolo/barber_web_server", "https://github.com/fvigliarolo/frontend_barberias_bootstrap", "https://github.com/fvigliarolo/barber_web_frontend"],
         goal: "Practice",
-        goal_es: "Practica",
+        goal_es: "Práctica",
         tecnologies: ["Html", "CSS", "JavaScript", "Bootstrap", "MySQL", "Node.js"],
         tasks: ["Development"],
         tags: ["Web Development", "Responsive Web Development", "Backend Development", "Fullstack Development", "Databases"]
@@ -168,7 +168,7 @@ const projects = [
         View reservations for the day, for a specific date, or within a time period.
         
         Create or delete reservations.`,
-        description_es: `Un sistema web para administrar reservas y horarios de barberias. Permite gestionar los dias de trabajo de los barberos, visualizar reservas por dia, fecha o periodo, y crear o eliminar reservas.`,
+        description_es: `Un sistema web para administrar reservas y horarios de barberías. Permite gestionar los días de trabajo de los barberos, visualizar reservas por día, fecha o período, y crear o eliminar reservas.`,
         url: "https://administration.agenduy.com/",
         extended_description: "",
         github: ["https://github.com/fvigliarolo/barberSystem/tree/master/frontend/administracion-barberias-v2"],
@@ -188,7 +188,7 @@ const projects = [
         This project was a university assignment for the Data Structures and Algorithms course.
         
         It aimed to understand the use and management of memory through pointers.`,
-        description_es: `Un gestor de base de datos desarrollado en lenguaje de bajo nivel (C) como proyecto universitario. Su objetivo es comprender la gestion de memoria y el uso de punteros en estructuras de datos y algoritmos.`,
+        description_es: `Un gestor de base de datos desarrollado en lenguaje de bajo nivel (C) como proyecto universitario. Su objetivo es comprender la gestión de memoria y el uso de punteros en estructuras de datos y algoritmos.`,
         url: "",
         extended_description: "",
         github: ["https://github.com/fvigliarolo/obligatorioEDA"],
@@ -205,7 +205,7 @@ const projects = [
         description: `A system for gyms where clients can register for classes at the gyms they choose, provided there are available spots for the selected time.
 
         On the other hand, instructors (associated with one or more gyms) create classes and schedules, setting the number of spots available and any desired restrictions.`,
-        description_es: `Un sistema para gimnasios donde los clientes pueden inscribirse a clases con cupos disponibles. Los instructores crean clases, definen horarios, establecen cupos y restricciones, y pueden estar asociados a multiples gimnasios.`,
+        description_es: `Un sistema para gimnasios donde los clientes pueden inscribirse a clases con cupos disponibles. Los instructores crean clases, definen horarios, establecen cupos y restricciones, y pueden estar asociados a múltiples gimnasios.`,
         url: "",
         extended_description: "",
         github: ["https://github.com/MacielFede/Entrenamos.uy_server", "https://github.com/MacielFede/Entrenamos.uy_admin"],
